@@ -1,5 +1,4 @@
-FROM python:3.6
-FROM node:10
+FROM nikolaik/python-nodejs:python3.7-nodejs10
 
 RUN apt update
 RUN apt install -y python3-dev gcc
@@ -14,7 +13,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN python app/server.py serve
+RUN python server.py serve
 RUN npm start
 
 EXPOSE 3000

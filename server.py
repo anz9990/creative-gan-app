@@ -62,7 +62,7 @@ async def download_file(url, dest):
 
 async def setup_learner(arch=AWD_LSTM):
     #await download_file(model_file_url, path/'static/'/f'{model_file_name}.pth')
-    #await download_file_from_google_drive("1r7fJfQPM3OYfQXIASFqYjsoc8n6qeEQW",path/'static/models'/f'{model_file_name}.pth')
+    await download_file_from_google_drive("1r7fJfQPM3OYfQXIASFqYjsoc8n6qeEQW",path/'static/models'/f'{model_file_name}.pth')
     data_lm = TextLMDataBunch.load_empty(path/"static/","export_gutenberg.pkl")
     if arch is TransformerXL:
         config = tfmerXL_lm_config.copy()
