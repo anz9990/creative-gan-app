@@ -19,4 +19,3 @@ RUN npm start
 
 EXPOSE 3000
 
-CMD ["python", "server.py", "serve"]
