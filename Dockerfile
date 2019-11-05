@@ -12,7 +12,8 @@ ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
-
+RUN mkdir static
+RUN mkdir static/models
 RUN python server.py serve
 RUN npm start
 
