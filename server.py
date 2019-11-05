@@ -17,8 +17,8 @@ model_file_name = 'guten'
 export_file_name = "export"
 path = Path(__file__).parent
 app = Starlette()
-model_file_id = "https://drive.google.com/uc?export=download&id=1r7fJfQPM3OYfQXIASFqYjsoc8n6qeEQW"
-export_file_id = "https://drive.google.com/uc?export=download&id=1Ka11WI8bmxGp04LHbYbPESRyNF1OKq9e"
+model_file_id = "1FdyQQMoeIYmwnapniwIzPJAsGUeoulpR"
+export_file_id = "1Ka11WI8bmxGp04LHbYbPESRyNF1OKq9e"
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount("/static", StaticFiles(directory='./static'))
 
@@ -66,7 +66,7 @@ async def setup_learner(arch=AWD_LSTM):
     #await download_file(model_file_url, path/'static/'/f'{model_file_name}.pth')
     await download_file_from_google_drive(model_file_id,path/'static/models'/f'{model_file_name}.pth')
     await download_file_from_google_drive(export_file_id,path/'static'/f'{export_file_name}.pkl')
-    data_lm = TextLMDataBunch.load_empty(path/"static/",export_file_name)
+    data_lm = TextLMDataBunch.load_empty(path/"static/",export_file_name+".pkl")
     if arch is TransformerXL:
         config = tfmerXL_lm_config.copy()
         config['mem_len'] = 150
