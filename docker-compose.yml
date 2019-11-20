@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile-react
+    ports:
+      - "3000:3000"
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile-python
+    ports:
+      - "8899:8899"
+
