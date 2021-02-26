@@ -1,5 +1,5 @@
 aiofiles==0.4.0
-aiohttp==3.6.2
+aiohttp==3.7.4
 fastai==1.0.55
 starlette==0.12.10
 uvicorn==0.9.1
